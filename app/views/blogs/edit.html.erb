@@ -1,0 +1,13 @@
+<h1>ブログ更新</h1>
+<div class="form-area">
+  <%= form_with model: @blog, url: dashboard_blogs_edit_patch_path, local: true, method: :patch do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-text"%>
+    <%= f.label :document %>
+    <%= f.text_area :document, class: "form-text form-text-area" %>
+    <div class="form-submit">
+      <%= f.submit "更新" %>
+    </div>
+  <% end %>
+</div>
+

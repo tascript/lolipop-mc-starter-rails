@@ -1,0 +1,18 @@
+<h1>ブログ詳細</h1>
+
+<div class="blog-area">
+  <div class="blog-contents">
+    <h2 class="blog-title"><%= @blog.title%></h2>
+    <% @blog.document.split("\n") do |document| %>
+      <% unless document.blank?%>
+        <p class="blog-line"><%= document %></p>
+      <% else %>
+        <br/>
+      <% end %>
+    <% end %>
+  </div>
+  <div class = "blog-button-area">
+    <%= button_to '削除', "/dashboard/blogs/#{@blog[:id]}", method: "delete", class: "blog-button" %>
+    <%= button_to '編集', "/dashboard/blogs/#{@blog[:id]}/edit", method: "get", class: "blog-button" %>
+  </div>
+</div>

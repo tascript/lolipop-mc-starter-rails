@@ -1,0 +1,27 @@
+// Place all the styles related to the config controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.config-area {
+  margin: 0 auto;
+  max-width: 500px;
+  min-width: 200px;
+  padding: 1rem 2rem;
+}
+.config-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.config-key {
+  text-align: right;
+  grid-column: 1 / 2;
+}
+.config-value {
+  padding-left: 1rem;
+  grid-column: 2 / 3;
+}
+.config-link-area {
+  text-align: center;
+}
+.config-link {
+  text-decoration: none;
+}

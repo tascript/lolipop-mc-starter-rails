@@ -1,0 +1,48 @@
+<h1>設定</h1>
+<div class="config-area">
+  <div class="config-item">
+    <div class="config-key">
+      <p>ユーザー名:</p>
+    </div>
+    <div class="config-value">
+      <p><%= @current_user.name %></p>
+    </div>
+  </div>
+  <div class="config-item">
+    <div class="config-key">
+      <p>メールアドレス:</p>
+    </div>
+    <div class="config-value">
+      <p><%= @current_user.email %></p>
+    </div>
+  </div>
+  <div class="config-link-area">
+   <%= link_to "ユーザー設定を変更する", dashboard_user_edit_path, method: "get", class: "config-link" %>
+  </div>
+</div>
+<% if @authentication.nil? %>
+<div class="config-area">
+  <div class="config-link-area">
+    <%= link_to "APIキーを生成する", dashboard_authentications_path, method: "post", class: "config-link" %>
+  </div>
+</div>
+<% else %>
+<div class="config-area">
+  <div class="config-item">
+    <div class="config-key">
+    </div>
+    <div class="config-value">
+      <p></p>
+    </div>
+  </div>
+  <div class="config-link-area">
+    <p><%= @authentication.reload_count <= 1 ? @authentication.token : 'APIキー生成済み' %></p>
+    <div>
+      <%= link_to "APIキーを再生成する", dashboard_authentications_update_path, method: "patch", class: "config-link" %>
+    </div>
+    <div>
+      <%= link_to "APIキーを削除する", dashboard_authentications_path, method: "delete", class: "config-link" %>
+    </div>
+  </div>
+</div>
+<% end %>

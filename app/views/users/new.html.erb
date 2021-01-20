@@ -1,0 +1,14 @@
+<h1>アカウント作成</h1>
+<div class="form-area">
+  <%= form_with model: @user, url: signup_path, local: true do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-text" %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-text" %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-text" %>
+    <div class="form-submit">
+      <%= f.submit "作成" %>
+    </div>
+  <% end %>
+</div>

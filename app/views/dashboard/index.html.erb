@@ -1,0 +1,20 @@
+<h1>ダッシュボード</h1>
+<% if @blogs.empty? %>
+  <a href="/dashboard/blogs">ブログを作りましょう</a>
+<% else %>
+  <div class="card-area">
+    <% @blogs.each do |blog| %>
+      <div class="card">
+        <div class="card-main">
+          <h2 class="card-title"><%= blog.title%></h2>
+          <div class="card-message">
+          <p><%= blog.document%></p>
+          </div>
+        </div>
+        <div class="card-link-area">
+          <%= link_to "詳細を見る", "/dashboard/blogs/#{blog.id}", class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

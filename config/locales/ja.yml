@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      blog: ブログ
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+      blog:
+        title: タイトル
+        document: 内容
+  helpers:
+    label:
+      session:
+        email: メールアドレス
+        password: パスワード
+

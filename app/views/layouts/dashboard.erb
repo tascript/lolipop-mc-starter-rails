@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ダッシュボード</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'dashboard', media: 'all' %>
+    <%= stylesheet_link_tag 'config', media: 'all' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+    <% unless current_page? controller: "dashboard", action: "index" %>
+      <%= link_to "ダッシュボードへ", dashboard_path, method: "get", class: "dashboard-link" %>
+    <% end %>
+    <p class="username"><%= @current_user.name %>さん</p>
+    <%= link_to "設定", dashboard_config_path, method: "get", class: "header-link" %>
+    <%= link_to "新規作成", dashboard_blogs_path, method: "get", class: "header-link" %>
+    <%= link_to "ログアウト", logout_path, method: "delete", class: "header-link" %>
+  </header>
+    <div class="contents">
+      <%= render :partial => 'layouts/flash' %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
